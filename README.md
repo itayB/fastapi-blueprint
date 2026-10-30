@@ -22,4 +22,4 @@ uv run prek run -a
 
 ## Dependencies
 
-Every dependency is pinned with `==`, and `uv.lock` pins transitive ones. Dependabot (`.github/dependabot.yml`) bumps them weekly. The prek hooks are prek's builtins and local `uv run` hooks, so Dependabot's uv updates keep them current too.
+Every dependency is pinned with `==`, and `uv.lock` pins transitive ones. Dependabot (`.github/dependabot.yml`) bumps them weekly. The prek hooks are prek's builtins, local `uv run` hooks, and gitleaks, whose `rev` Dependabot's `pre-commit` ecosystem bumps. prek builds gitleaks with its own Go toolchain, so no Docker or local Go is needed.
