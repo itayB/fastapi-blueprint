@@ -29,4 +29,4 @@ docker run --rm -p 8000:8000 -e PROJECT_NAME=my-service fastapi-blueprint
 
 ## Dependencies
 
-Every dependency is pinned with `==`, and `uv.lock` pins transitive ones. Dependabot (`.github/dependabot.yml`) bumps them and the uv Docker image weekly. The Python version lives in `.python-version`; the `sync-python-version` hook copies it into the Dockerfile's `PYTHON_VERSION` build arg. The prek hooks are prek's builtins and local `uv run` hooks, so Dependabot's uv updates keep them current too.
+Every dependency is pinned with `==`, and `uv.lock` pins transitive ones. Dependabot (`.github/dependabot.yml`) bumps them and the uv Docker image weekly. The Python version lives in `.python-version`; the `sync-python-version` hook copies it into the Dockerfile's `PYTHON_VERSION` build arg.
