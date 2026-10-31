@@ -6,10 +6,17 @@ repos:
     hooks:
       - id: check-added-large-files
         args: [--maxkb=1000]
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
       - id: check-toml
       - id: check-yaml
-      - id: check-merge-conflict
+      - id: detect-private-key
       - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: no-commit-to-branch
       - id: trailing-whitespace
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.30.1
