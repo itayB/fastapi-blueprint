@@ -1,0 +1,46 @@
+name: release
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+
+      - name: Compute next version
+        id: next
+        run: |
+          set +e
+          version=$(uv run --only-group dev cz bump --get-next --yes)
+          status=$?
+          set -e
+          if [ "$status" -eq 21 ]; then
+            echo "No releasable commits since the last tag"
+            exit 0
+          fi
+          [ "$status" -eq 0 ] || exit "$status"
+          echo "version=v$version" >> "$GITHUB_OUTPUT"
+
+      - name: Create tag and release
+        if: steps.next.outputs.version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.next.outputs.version }}
+        run: |
+          previous=$(git describe --tags --abbrev=0 --match 'v*' 2>/dev/null || true)
+          uv run --only-group dev cz changelog --dry-run --unreleased-version "$VERSION" ${previous:+--start-rev "$previous"} > notes.md
+          gh release create "$VERSION" --target "$GITHUB_SHA" --title "$VERSION" --notes-file notes.md
