@@ -30,7 +30,9 @@ RUN useradd --system --uid 10001 --no-create-home app
 WORKDIR /app
 
 COPY --from=builder /app/.venv /app/.venv
+COPY pyproject.toml ./
 COPY app ./app
+COPY migrations ./migrations
 
 USER app
 
