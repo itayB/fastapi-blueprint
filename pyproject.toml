@@ -57,7 +57,7 @@ plugins = [ "pydantic.mypy" ]
 [tool.pytest.ini_options]
 testpaths = [ "tests" ]
 pythonpath = [ "." ]
-addopts = "--color=yes --cov --cov-report=term-missing"
+addopts = "--color=yes --import-mode=importlib --cov --cov-report=term-missing"
 filterwarnings = [ "error" ]
 strict = true
 
