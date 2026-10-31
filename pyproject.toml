@@ -1,6 +1,6 @@
 [project]
 name = "fastapi-blueprint"
-version = "0.1.0"
+version = "0.0.0"
 description = "FastAPI service template"
 readme = "README.md"
 requires-python = ">=3.15"
@@ -11,6 +11,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "commitizen==4.19.3",
     "prek==0.5.9",
     "pytest==9.2.0",
     "ruff==0.17.3",
@@ -25,4 +26,12 @@ filterwarnings = ["error"]
 target-version = "py315"
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+preview = true
+explicit-preview-rules = true
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "PLC2701", "SLF001"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version_provider = "scm"
+tag_format = "v$version"
+major_version_zero = true
