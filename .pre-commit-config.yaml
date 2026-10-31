@@ -72,6 +72,18 @@ repos:
         language: system
         types: [python]
         pass_filenames: false
+      - id: vulture
+        name: vulture
+        entry: uv run vulture
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: deptry
+        name: deptry
+        entry: uv run deptry .
+        language: system
+        files: ^(pyproject\.toml|uv\.lock|.*\.py)$
+        pass_filenames: false
       - id: sync-python-version
         name: sync Dockerfile PYTHON_VERSION with .python-version
         entry: python3 scripts/sync_python_version.py
