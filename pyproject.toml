@@ -5,35 +5,42 @@ description = "FastAPI service template"
 readme = "README.md"
 requires-python = ">=3.15"
 dependencies = [
-    "fastapi[standard]==0.162.0",
-    "pydantic-settings==2.16.2",
+  "fastapi[standard]==0.162.0",
+  "pydantic-settings==2.16.2",
 ]
 
 [dependency-groups]
 dev = [
-    "commitizen==4.19.3",
-    "prek==0.5.9",
-    "pytest==9.2.0",
-    "ruff==0.17.3",
+  "commitizen==4.19.3",
+  "prek==0.5.9",
+  "pyproject-fmt==2.30.3",
+  "pytest==9.2.0",
+  "ruff==0.17.3",
 ]
-
-[tool.pytest.ini_options]
-pythonpath = ["."]
-testpaths = ["tests"]
-addopts = "--color=yes"
-strict = true
-filterwarnings = ["error"]
 
 [tool.ruff]
 target-version = "py315"
 
 [tool.ruff.lint]
-preview = true
+select = [ "B", "E", "F", "I", "PLC2701", "RUF", "SIM", "SLF001", "UP", "W" ]
 explicit-preview-rules = true
-select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "PLC2701", "SLF001"]
+preview = true
+
+[tool.pyproject-fmt]
+keep_full_version = true
+generate_python_version_classifiers = false
+table_format = "long"
+sub_table_spacing = "\n"
+
+[tool.pytest.ini_options]
+testpaths = [ "tests" ]
+pythonpath = [ "." ]
+addopts = "--color=yes"
+filterwarnings = [ "error" ]
+strict = true
 
 [tool.commitizen]
 name = "cz_conventional_commits"
 version_provider = "scm"
-tag_format = "v$version"
 major_version_zero = true
+tag_format = "v$version"
