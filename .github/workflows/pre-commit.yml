@@ -25,4 +25,4 @@ jobs:
           path: ~/.cache/prek
           key: prek-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
 
-      - run: uv run --locked prek run --all-files --show-diff-on-failure
+      - run: uv run --locked prek run --all-files --show-diff-on-failure --color always
