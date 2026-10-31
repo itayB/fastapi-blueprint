@@ -27,6 +27,10 @@ docker build -t fastapi-blueprint .
 docker run --rm -p 8000:8000 -e PROJECT_NAME=my-service fastapi-blueprint
 ```
 
+## Postgres (optional)
+
+Set `DATABASE_URL` (see `.env.example`) and run `uv run alembic upgrade head`; routes get a session through `Depends(get_session)`. Without Postgres, delete `app/db.py`, `migrations/`, the `postgres` dependency group and `[tool.alembic]`.
+
 ## Dependencies
 
 Every dependency is pinned with `==`, and `uv.lock` pins transitive ones. Dependabot (`.github/dependabot.yml`) bumps them and the uv Docker image weekly. The Python version lives in `.python-version`; the `sync-python-version` hook copies it into the Dockerfile's `PYTHON_VERSION` build arg.
