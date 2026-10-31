@@ -16,6 +16,7 @@ dev = [
   "commitizen==4.19.3",
   "deptry==0.25.1",
   "mypy==2.4.1",
+  "pip-audit==2.10.1",
   "prek==0.5.9",
   "pyproject-fmt==2.30.3",
   "pytest==9.2.0",
