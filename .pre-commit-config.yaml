@@ -66,6 +66,12 @@ repos:
         language: system
         types: [python]
         require_serial: true
+      - id: mypy
+        name: mypy
+        entry: uv run mypy
+        language: system
+        types: [python]
+        pass_filenames: false
       - id: sync-python-version
         name: sync Dockerfile PYTHON_VERSION with .python-version
         entry: python3 scripts/sync_python_version.py
