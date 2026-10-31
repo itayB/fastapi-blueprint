@@ -54,6 +54,12 @@ repos:
         entry: uv run shellcheck
         language: system
         types: [shell]
+      - id: uv-audit
+        name: uv audit
+        entry: uv audit --locked --preview-features audit
+        language: system
+        files: ^uv\.lock$
+        pass_filenames: false
       - id: ruff-check
         name: ruff check
         entry: uv run ruff check --force-exclude --fix --exit-non-zero-on-fix
