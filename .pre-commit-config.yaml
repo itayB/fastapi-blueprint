@@ -54,9 +54,9 @@ repos:
         entry: uv run shellcheck
         language: system
         types: [shell]
-      - id: pip-audit
-        name: pip-audit
-        entry: bash -o pipefail -c 'uv export -q --format requirements-txt --no-emit-project | uv run pip-audit --disable-pip --strict -r /dev/stdin'
+      - id: uv-audit
+        name: uv audit
+        entry: uv audit --locked --preview-features audit
         language: system
         files: ^uv\.lock$
         pass_filenames: false
