@@ -2,7 +2,7 @@
 
 ARG PYTHON_VERSION=3.15.2
 
-FROM ghcr.io/astral-sh/uv:0.13.6 AS uv
+FROM ghcr.io/astral-sh/uv:0.13.7 AS uv
 
 FROM python:${PYTHON_VERSION}-slim-trixie AS builder
 
