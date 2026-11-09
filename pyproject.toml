@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.15"
 dependencies = [
   "fastapi[standard]==0.162.0",
-  "pydantic==2.14.2",
+  "pydantic==2.14.3",
   "pydantic-settings==2.16.2",
   "uvicorn[standard]==0.54.0",
 ]
@@ -16,11 +16,11 @@ dev = [
   "commitizen==4.19.3",
   "deptry==0.25.1",
   "mypy==2.4.1",
-  "prek==0.5.9",
-  "pyproject-fmt==2.30.3",
+  "prek==0.5.10",
+  "pyproject-fmt==2.30.6",
   "pytest==9.2.0",
   "pytest-cov==7.1.0",
-  "ruff==0.17.3",
+  "ruff==0.17.4",
   "shellcheck-py==0.11.0.1",
   "vulture==2.16",
   "yamllint==1.38.0",
